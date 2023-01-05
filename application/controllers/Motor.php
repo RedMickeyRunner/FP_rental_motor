@@ -33,26 +33,34 @@ class Motor extends CI_Controller
             $this->load->view('motor_form');
         }
     }
-    public function editview()
+    public function editview($id)
     {
-        $this->load->view('motor/motoredit');
+        $data['motors'] = $this->MotorModel->getById($id);
+        $this->load->view('motor/motoredit', $data);
     }
 
-    public function edit($id)
+    public function edit()
     {
-        if ($this->input->method() == 'post') {
-            $data = array(
-                'nama' => $this->input->post('nama'),
-                'tipe' => $this->input->post('tipe'),
-                'harga_sewa_per_hari' => $this->input->post('harga_sewa_per_hari'),
-                'kondisi' => $this->input->post('kondisi'),
-            );
-            $this->MotorModel->update($id, $data);
-            redirect('motor');
-        } else {
-            $data['motor'] = $this->MotorModel->getById($id);
-            $this->load->view('motor_form', $data);
-        }
+       $idMotor = $this->input->post('id');
+       $namaMotor = $this->input->post('nama');
+       $tipeMotor = $this->input->post('tipe');
+       $hargasewa = $this->input->post('harga_sewa_per_hari');
+       $kondisi = $this->input->post('kondisi');
+
+
+       $data = array(
+        'nama' => $namaMotor,
+        'tipe' => $tipeMotor,
+        'harga_sewa_per_hari' => $hargasewa,
+        'kondisi' => $kondisi
+    );
+    $this->MotorModel->update($idMotor, $data);
+    if ($this->db->affected_rows()) {
+        redirect('motor');
+    }
+    else {
+        redirect('motor');
+    }
     }
 
     public function delete($id)

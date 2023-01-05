@@ -2,22 +2,23 @@
 
 <div class="container mt-5">
     <h2>Edit Motor</h2>
-    <form method="post" action="<?php echo site_url('motor/edit/' . $motor->id) ?>">
+    <form method="post" action="<?php echo site_url('motor/edit') ?>">
         <div class="form-group">
+            <input type="hidden" name="id" value="<?php $motors->id ?>">
             <label for="nama">Nama:</label>
-            <input type="text" class="form-control" name="nama" id="nama" value="<?= $motor->nama ?>">
+            <input type="text" class="form-control" name="nama" id="nama" value="<?= $motors->nama ?>">
         </div>
         <div class="form-group">
             <label for="tipe">Tipe:</label>
-            <input type="text" class="form-control" name="tipe" id="tipe" value="<?= $motor->tipe ?>">
+            <input type="text" class="form-control" name="tipe" id="tipe" value="<?= $motors->tipe ?>">
         </div>
         <div class="form-group">
             <label for="harga_sewa_per_hari">Harga Sewa Per Hari:</label>
-            <input type="number" class="form-control" name="harga_sewa_per_hari" id="harga_sewa_per_hari" value="<?= $motor->harga_sewa_per_hari ?>">
+            <input type="number" class="form-control" name="harga_sewa_per_hari" id="harga_sewa_per_hari" value="<?= $motors->harga_sewa_per_hari ?>">
         </div>
         <div class="form-group">
             <label for="kondisi">Kondisi:</label>
-            <input type="text" class="form-control" name="kondisi" id="kondisi" value="<?= $motor->kondisi ?>">
+            <input type="text" class="form-control" name="kondisi" id="kondisi" value="<?= $motors->kondisi ?>">
         </div>
         <button type="submit" class="btn btn-primary">Simpan</button>
     </form>

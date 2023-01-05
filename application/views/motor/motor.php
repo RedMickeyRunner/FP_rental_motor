@@ -60,8 +60,8 @@
                                             <td><?= $motor->harga_sewa_per_hari ?></td>
                                             <td><?= $motor->kondisi ?></td>
                                          <td>
-                                            <a href="<?php site_url('motor/editview'. $motor->id) ?>">Edit</a> | 
-                                            <a href="<?php site_url('motor/delete/' . $motor->id) ?>" onclick="return confirm('Anda yakin ingin menghapus data ini?')">Delete</a>
+                                            <a href="<?php echo site_url('motor/editview/'. $motor->id) ?>">Edit</a> | 
+                                            <a href="<?php echo site_url('motor/delete/' . $motor->id) ?>" onclick="return confirm('Anda yakin ingin menghapus data ini?')">Delete</a>
                                          </td>
                                         </tr>
                                     <?php endforeach; ?>
