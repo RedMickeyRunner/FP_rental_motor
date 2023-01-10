@@ -40,6 +40,7 @@
                 <h6 class="collapse-header">Data Motor:</h6>
                 <a class="collapse-item" href="<?php echo site_url('motor/') ?>">Motor</a>
                 <a class="collapse-item" href="<?php echo site_url('penyewa/') ?>">Penyewa</a>
+                <a class="collapse-item" href="<?php echo site_url('sewa/') ?>">Daftar Sewa</a>
             </div>
         </div>
     </li>
