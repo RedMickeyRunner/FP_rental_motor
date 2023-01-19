@@ -26,7 +26,8 @@ class PenyewaModel extends CI_Model
 
     public function update($id, $data)
     {
-        $this->db->update('penyewa', $data, array('id' => $id));
+        $this->db->where( array('id' => $id));
+        $this->db->update('penyewa', $data);
     }
 
     public function delete($id)

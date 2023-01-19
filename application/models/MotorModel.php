@@ -19,7 +19,7 @@ class MotorModel extends CI_Model
         return $query->row();
     }
 
-    public function insert($data)
+    public function insert_motor($data)
     {
         $this->db->insert('motor', $data);
     }

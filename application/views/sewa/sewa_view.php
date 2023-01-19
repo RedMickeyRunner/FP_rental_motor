@@ -35,44 +35,39 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Motor</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Data Penyewaan</h6>
                         </div>
-                        <a href="<?php echo site_url('sewa/addview') ?>" class="btn btn-primary">Tambahkan Motor</a>
+                        <a href="<?php echo site_url('sewa/addview') ?>" class="btn btn-primary">Tambahkan Sewa</a>
                         <div class="card-body">
                             <div class="table-responsive">
-                            <table>
+                            <table class="table table-striped">
+                                <thead class="thead-light">
                                 <tr>
-                                    <th>ID</th>
+                                    <th>No :</th>
+                                    <th>Nama Pelanggan</th>
                                     <th>Nama Motor</th>
-                                    <th>Nama Penyewa</th>
                                     <th>Tanggal Sewa</th>
                                     <th>Tanggal Kembali</th>
-                                    <th>Harga Sewa</th>
+                                    <th>Harga Total</th>
                                     <th>Aksi</th>
                                 </tr>
-                                <?php foreach ($sewa as $s): ?>
+                                </thead>
+                                
+                                <?php foreach($sewa as $s => $p): ?>
                                 <tr>
-                                    <td><?= $s->id ?></td>
-                                    <?php
-                                        $this->load->model('MotorModel');
-                                        $motor = $this->MotorModel->get_by_id($s->motor_id);
-                                    ?>
-                                    <td><?= $motor->nama ?></td>
-                                    <?php
-                                        $this->load->model('PenyewaModel');
-                                        $penyewa = $this->PenyewaModel->get_by_id($s->penyewa_id);
-                                    ?>
-                                    <td><?= $penyewa->nama ?></td>
-                                    <td><?= $s->tgl_sewa ?></td>
-                                    <td><?= $s->tgl_kembali ?></td>
-                                    <td><?= $s->harga_sewa ?></td>
+                                    <td><?= $s + 1 ?></td>
+                                    <td><?php echo $p->nama_pelanggan; ?></td>
+                                    <td><?php echo $p->nama_motor; ?></td>
+                                    <td><?php echo $p->tanggal_sewa; ?></td>
+                                    <td><?php echo $p->tanggal_kembali; ?></td>
+                                    <td><?php echo $p->harga_total; ?></td>
                                     <td>
-                                        <a href="<?= base_url('sewa/edit/' . $s->id) ?>">Edit</a>
-                                        <a href="<?= base_url('sewa/delete/' . $s->id) ?>">Delete</a>
+                                        <a href="<?php echo base_url('sewa/editview/'.$p->id); ?>" class="btn btn-primary btn-sm">Edit</a>
+                                        <a href="<?php echo base_url('sewa/delete/'.$p->id); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                                     </td>
                                 </tr>
-                                <?php endforeach ?>
-                                </table>
+                                <?php endforeach; ?>
+                            </table>
 
                             </div>
                         </div>

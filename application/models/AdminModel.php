@@ -12,4 +12,9 @@ class AdminModel extends CI_Model
         $query = $this->db->get_where('admin', array('username' => $username));
         return $query->row();
     }
+
+    public function auth($u, $p)
+    {
+        return $this->db->get_where('admin', array('username' => $u, 'password' => $p));;
+    }
 }

@@ -4,7 +4,7 @@
     <h2>Edit Motor</h2>
     <form method="post" action="<?php echo site_url('motor/edit') ?>">
         <div class="form-group">
-            <input type="hidden" name="id" value="<?php $motors->id ?>">
+            <input type="hidden" name="id" value="<?= $motors->id ?>">
             <label for="nama">Nama:</label>
             <input type="text" class="form-control" name="nama" id="nama" value="<?= $motors->nama ?>">
         </div>

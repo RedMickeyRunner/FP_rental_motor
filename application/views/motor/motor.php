@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>Admin Rental Motor</title>
 
     <!-- Custom fonts for this template -->
     <link href="<?php echo base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -43,7 +43,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                        <th>ID</th>
+                                        <th>No</th>
                                             <th>Nama</th>
                                             <th>Tipe</th>
                                             <th>Harga Sewa Per Hari</th>
@@ -52,9 +52,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php foreach ($motors as $motor): ?>
+                                    <?php foreach ($motors as $i => $motor): ?>
                                         <tr>
-                                            <td><?= $motor->id ?></td>
+                                            <td><?= $i + 1 ?></td>
                                             <td><?= $motor->nama ?></td>
                                             <td><?= $motor->tipe ?></td>
                                             <td><?= $motor->harga_sewa_per_hari ?></td>
@@ -81,7 +81,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Your Website 2023</span>
                     </div>
                 </div>
             </footer>

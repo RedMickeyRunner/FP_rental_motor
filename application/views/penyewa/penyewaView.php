@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>Tabel Penyewa</title>
 
     <!-- Custom fonts for this template -->
     <link href="<?php echo base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -40,24 +40,24 @@
                         <a href="<?php echo site_url('penyewa/addview') ?>" class="btn btn-primary">Tambahkan Penyewa</a>
                         <div class="card-body">
                             <div class="table-responsive">
-                            <table>
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <tr>
-                            <th>ID</th>
+                            <th>No</th>
                             <th>Nama</th>
                             <th>Alamat</th>
                             <th>No. Telp</th>
                             <th>Aksi</th>
                         </tr>
-                        <?php foreach ($penyewa as $p): ?>
+                        <?php foreach ($penyewa as $i => $p): ?>
                         <tr>
-                        <td><?= $p->id ?></td>
-                        <td><?= $p->nama ?></td>
-                        <td><?= $p->alamat?></td>
-                        <td><?= $p->no_telepon?></td>
-                        <td>
-                            <a href="<?= base_url('penyewa/editView/'.$p->id) ?>">Edit</a> |
-                            <a href="<?= base_url('penyewa/delete/'.$p->id) ?>" onclick="return confirm('Anda yakin?')">Hapus</a>
-                        </td>
+                            <td><?= $i + 1 ?></td>
+                            <td><?= $p->nama ?></td>
+                            <td><?= $p->alamat?></td>
+                            <td><?= $p->no_telepon?></td>
+                            <td>
+                                <a href="<?= base_url('penyewa/editView/'.$p->id) ?>">Edit</a> |
+                                <a href="<?= base_url('penyewa/delete/'.$p->id) ?>" onclick="return confirm('Anda yakin?')">Hapus</a>
+                            </td>
                         </tr>
                         <?php endforeach; ?>
                         </table>

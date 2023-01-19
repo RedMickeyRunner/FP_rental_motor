@@ -21,14 +21,14 @@ class Auth extends CI_Controller
             $username = $this->input->post('username');
             $password = $this->input->post('password');
 
-            $admin = $this->AdminModel->getByUsername($username);
-            if ($admin && password_verify($password, $admin->password)) {
+            $admin = $this->AdminModel->auth($username, $password);
+            if ($admin->num_rows() > 0) {
                 $this->session->set_userdata(array(
                     'is_logged_in' => true,
                     'admin_id' => $admin->id,
                     'admin_nama' => $admin->nama,
                 ));
-                redirect('dashboard');
+                redirect(base_url('dashboard'));
             } else {
                 $this->session->set_flashdata('error', 'Username atau password salah');
                 redirect('auth/login');

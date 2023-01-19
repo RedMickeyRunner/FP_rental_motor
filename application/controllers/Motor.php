@@ -27,7 +27,7 @@ class Motor extends CI_Controller
                 'harga_sewa_per_hari' => $this->input->post('harga_sewa_per_hari'),
                 'kondisi' => $this->input->post('kondisi'),
             );
-            $this->MotorModel->insert($data);
+            $this->MotorModel->insert_motor($data);
             redirect('motor');
         } else {
             $this->load->view('motor_form');
@@ -36,6 +36,7 @@ class Motor extends CI_Controller
     public function editview($id)
     {
         $data['motors'] = $this->MotorModel->getById($id);
+        // echo '<pre>'; print_r($data); die();
         $this->load->view('motor/motoredit', $data);
     }
 
@@ -46,20 +47,20 @@ class Motor extends CI_Controller
        $tipeMotor = $this->input->post('tipe');
        $hargasewa = $this->input->post('harga_sewa_per_hari');
        $kondisi = $this->input->post('kondisi');
-
-
-       $data = array(
+        $data = array(
         'nama' => $namaMotor,
         'tipe' => $tipeMotor,
         'harga_sewa_per_hari' => $hargasewa,
         'kondisi' => $kondisi
     );
+
     $this->MotorModel->update($idMotor, $data);
+
     if ($this->db->affected_rows()) {
         redirect('motor');
     }
     else {
-        redirect('motor');
+        redirect('motor/motoredit/'.$idMotor);
     }
     }
 

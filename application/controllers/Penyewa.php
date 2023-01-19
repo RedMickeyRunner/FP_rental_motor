@@ -41,7 +41,7 @@ class Penyewa extends CI_Controller
         $idPenyewa = $this->input->post('id');
         $namaPenyewa = $this->input->post('nama');
         $alamatPenyewa = $this->input->post('alamat');
-        $no_telepon = $this->input->post('no_telepon');
+        $no_telepon = $this->input->post('no_telp');
  
  
         $data = array(
@@ -49,15 +49,16 @@ class Penyewa extends CI_Controller
          'nama' => $namaPenyewa,
          'alamat' => $alamatPenyewa,
          'no_telepon' => $no_telepon
-     );
-     $this->PenyewaModel->update($idPenyewa, $data);
-     if ($this->db->affected_rows()) {
-         redirect('penyewa');
-     }
-     else {
-         redirect('penyewa');
-     }
+        );
+        $this->PenyewaModel->update($idPenyewa, $data);
+        if ($this->db->affected_rows() > 0) {
+            redirect('penyewa');
+        }
+        else {
+             redirect('penyewa');
+        }
     }
+
     public function delete($id)
     {
         $this->PenyewaModel->delete($id);
